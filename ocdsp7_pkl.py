@@ -48,9 +48,9 @@ def load_knn(df_train):
 #def load_logo():
     # Construction de la sidebar
     # Chargement du logo
-#    logo = Image.open("logo.png") 
+    logo = Image.open("logo.png") 
     
-#    return logo
+    return logo
 
 @st.cache()
 def load_infos_gen(data_train):
@@ -194,9 +194,8 @@ st.sidebar.subheader("Informations générales")
 # Lors du déploiment sur Azure, l'affichage de l'image mettait le code en erreur.
 # Car l'application n'arrivait pas à trouver le fichier.
 # J'ai donc enlever cette partie pour le déploiement et l'ai remplacé par du texte.
-#logo = load_logo()
-#st.sidebar.image(logo,
-#                    width=200)
+logo = load_logo()
+st.sidebar.image(logo,width=200)
 
 # Chargement des infos générales
 nb_credits, rev_moy, credits_moy, targets = load_infos_gen(data_train)
@@ -266,9 +265,9 @@ if st.checkbox("Afficher les informations du client?"):
     plt.ylabel('Count')
     st.pyplot()
 
-    #st.write("Montant du crédit :", infos_client["montant_credit"], "$")
-    #st.write("Annuités crédit :", infos_client["annuites"], "$")
-    #st.write("Montant du bien pour le crédit :", infos_client["montant_bien"], "$")
+    st.write("Montant du crédit :", infos_client["montant_credit"], "$")
+    st.write("Annuités crédit :", infos_client["annuites"], "$")
+    st.write("Montant du bien pour le crédit :", infos_client["montant_bien"], "$")
     st.write("Montant du crédit :", infos_client["AMT_CREDIT"].values[0], "$")
     st.write("Annuités crédit :", infos_client["AMT_ANNUITY"].values[0], "$")
     st.write("Montant du bien pour le crédit :", infos_client["AMT_GOODS_PRICE"].values[0], "$")
